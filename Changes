@@ -1,5 +1,8 @@
 Revision history for Perl module Crypt::OpenPGP
 
+1.13  2016-09-20
+    - Prevent ElGamal public key encryption looping forever for too larges values of 'p'
+
 1.12  2015-08-16 CPAN Day release
     - Add NoVersion parameter to CO::Armour->armour (GH#26)
 
