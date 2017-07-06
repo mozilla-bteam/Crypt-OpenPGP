@@ -1,5 +1,8 @@
 Revision history for Perl module Crypt::OpenPGP
 
+1.14  2017-07-05
+    - Prevent Crypt::OpenPGP from using /dev/random
+
 1.13  2016-09-20
     - Prevent ElGamal public key encryption looping forever for too larges values of 'p'
 

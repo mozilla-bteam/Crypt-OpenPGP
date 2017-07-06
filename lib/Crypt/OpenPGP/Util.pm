@@ -99,13 +99,15 @@ sub _ensure_bigint {
     return $num;
 }
 
+my $RNG = undef;
 sub get_random_bytes {
 	my $length = shift;
 	if (eval 'require Crypt::Random; 1;') {
-		return Crypt::Random::makerandom_octet( Length => $length);
+		return Crypt::Random::makerandom_octet( Length => $length, Strength => 0 );
 	}
 	elsif (eval 'require Bytes::Random::Secure; 1;') {
-		return Bytes::Random::Secure::random_bytes($length);
+		$RNG //= Bytes::Random::Secure->new(NonBlocking => 1);
+		return $RNG->bytes($length);
 	}
 	else {
 		die "No random source available!";
