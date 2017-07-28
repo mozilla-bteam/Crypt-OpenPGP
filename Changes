@@ -1,5 +1,8 @@
 Revision history for Perl module Crypt::OpenPGP
 
+1.15  2017-07-28
+    - Prevent Crypt::OpenPGP from using /dev/random for bigints too
+
 1.14  2017-07-05
     - Prevent Crypt::OpenPGP from using /dev/random
 
